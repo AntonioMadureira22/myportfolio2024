@@ -14,24 +14,27 @@
     justify-content: center;
     padding: 40px; /* Increase padding for more space */
     animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+    flex-direction: column; /* Stack elements vertically on smaller screens */
   }
   
   .image-container {
-    margin-right: 40px; /* Increase margin to add space between image and text */
+    margin-bottom: 30px; /* Add margin for spacing on small screens */
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
   }
   
   .profile-image {
-    width: 250px; /* Increase image size */
+    width: 300px; /* Increase image size */
     height: auto;
     border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
     animation: fadeIn 1s ease-out; /* Apply fade-in animation */
   }
   
   .description-container {
-    max-width: 800px; /* Increase width for larger text area */
+    max-width: 900px; /* Increase width for larger text area */
+    text-align: center; /* Center text on larger screens */
     animation: fadeIn 1s ease-out; /* Apply fade-in animation */
-  }
+}
   
   .description-container h1 {
     margin-bottom: 30px; /* Increase space below heading */
@@ -40,8 +43,56 @@
   }
   
   .description-container p {
-    font-size: 1.3em; /* Increase paragraph font size */
+    font-size: 1.4em; /* Increase paragraph font size */
     line-height: 1.8; /* Increase line height for better readability */
     color: #666; /* Adjust color as needed */
+  }
+  
+  .social-links {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+  }
+  
+  .social-icon {
+    width: 65px; /* Increase icon size */
+    height: 60px;
+    margin: 0 20px; /* Increase space between icons */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+  }
+  
+  .social-icon:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Enhanced hover effect */
+  }
+  
+  /* Responsive styles */
+  @media (max-width: 768px) {
+    .about-me {
+      flex-direction: column; /* Stack image and text vertically */
+    }
+  
+    .image-container {
+      margin-bottom: 20px; /* Adjust margin for smaller screens */
+    }
+  
+    .profile-image {
+      width: 300px; /* Adjust image size for smaller screens */
+    }
+  
+    .description-container h1 {
+      font-size: 2em; /* Adjust heading size for smaller screens */
+    }
+  
+    .description-container p {
+      font-size: 1.2em; /* Adjust paragraph size for smaller screens */
+    }
+  
+    .social-icon {
+      width: 50px; /* Adjust icon size for smaller screens */
+      height: 50px;
+    }
   }
   

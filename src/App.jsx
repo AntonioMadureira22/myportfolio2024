@@ -9,7 +9,6 @@ function App() {
   return (
     <Router>
       <Navbar/>
-      <Aboutme/>
       <Routes>
         <Route path="/about-me" element={<Aboutme />} />
         <Route path="/projects" element={<Projects />} />
