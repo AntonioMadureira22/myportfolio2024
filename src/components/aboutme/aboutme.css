@@ -1,0 +1,47 @@
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .about-me {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px; /* Increase padding for more space */
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+  }
+  
+  .image-container {
+    margin-right: 40px; /* Increase margin to add space between image and text */
+  }
+  
+  .profile-image {
+    width: 250px; /* Increase image size */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+  }
+  
+  .description-container {
+    max-width: 800px; /* Increase width for larger text area */
+    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+  }
+  
+  .description-container h1 {
+    margin-bottom: 30px; /* Increase space below heading */
+    font-size: 2.5em; /* Increase heading font size */
+    color: #333; /* Adjust color as needed */
+  }
+  
+  .description-container p {
+    font-size: 1.3em; /* Increase paragraph font size */
+    line-height: 1.8; /* Increase line height for better readability */
+    color: #666; /* Adjust color as needed */
+  }
+  
