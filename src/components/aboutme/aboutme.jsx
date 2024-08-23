@@ -20,7 +20,7 @@ function AboutMe() {
           With experience in selling high-end vehicles and a strong interest in technology, 
           I am dedicated to learning and growing in the field of web development. 
           My goal is to create impactful projects and contribute to exciting innovations. 
-          When I'm not working, I enjoy exploring new technologies, reading, and spending time with friends.
+          When I'm not working, I enjoy exploring new technologies, driving fast cars, and spending time with friends.
         </p>
         <Typewriter 
           text="Full-Stack Web Development, User Experience, Database Management"
