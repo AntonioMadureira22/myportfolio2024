@@ -14,7 +14,7 @@ function NavBar() {
   return (
     <nav className={`navbar ${isDarkMode ? 'dark' : 'light'}`}>
       <div className="navbar-brand">
-        <a href="#">Antonio Madureira</a>
+        <Link to="/Home">Antonio Madureira</Link>
       </div>
       <ul className="navbar-links">
         <li><Link to='/about-me'>About Me</Link></li>
