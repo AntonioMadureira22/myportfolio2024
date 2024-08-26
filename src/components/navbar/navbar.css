@@ -2,133 +2,197 @@
 
 /* Default dark mode styles */
 body.light-mode .navbar {
-    background-color: #f1f1f1; /* Light background for light mode */
-    color: #333; /* Dark text color for light mode */
+  background-color: #f1f1f1; /* Light background for light mode */
+  color: #333; /* Dark text color for light mode */
+}
+
+body .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #333; /* Dark background for dark mode */
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  width: 100%; /* Full width of the viewport */
+  max-width: 100%; /* Ensure it does not exceed the viewport width */
+  margin: 0 auto; /* Center the navbar */
+  z-index: 1000;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
+  box-sizing: border-box; /* Ensure padding is included in width calculation */
+}
+
+body.light-mode .navbar {
+  background-color: #f1f1f1; /* Light background for light mode */
+  color: #333; /* Dark text color for light mode */
+}
+
+.navbar-brand a {
+  color: #fff; /* Dark mode link color */
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+body.light-mode .navbar-brand a {
+  color: #333; /* Light mode link color */
+}
+
+/* Navbar links container */
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.navbar-links li a {
+  color: #fff; /* Dark mode link color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  transition: color 0.4s ease;
+}
+
+body.light-mode .navbar-links li a {
+  color: #333; /* Light mode link color */
+}
+
+.navbar-links li a:hover {
+  color: #939393; /* Highlight color on hover */
+  text-decoration: underline;
+}
+
+body.light-mode .navbar-links li a:hover {
+  color: #00ff9d; /* Different highlight color for light mode */
+  text-decoration: underline;
+}
+
+/* Button to toggle theme */
+.theme-toggle {
+  background: transparent;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s, color 0.3s;
+}
+
+body.light-mode .theme-toggle {
+  border-color: #333; /* Dark border for light mode */
+  color: #333; /* Dark text color for light mode */
+}
+
+body.light-mode .theme-toggle:hover {
+  background-color: #ddd; /* Light background on hover for light mode */
+}
+
+body .theme-toggle:hover {
+  background-color: #444; /* Dark background on hover for dark mode */
+}
+
+/* Hamburger Menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger .bar.open:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger .bar.open:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger .bar.open:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .hamburger {
+      display: flex;
   }
-  
-  body .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: 	#333; /* Dark background for dark mode */
-    padding: 1rem 2rem;
-    position: sticky;
-    top: 0;
-    width: 100%; /* Full width of the viewport */
-    max-width: 100%; /* Ensure it does not exceed the viewport width */
-    margin: 0 auto; /* Center the navbar */
-    z-index: 1000;
-    box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.3); /* Adds a slight shadow for depth */
-    box-sizing: border-box; /* Ensure padding is included in width calculation */
-  }
-  
-  body.light-mode .navbar {
-    background-color: #f1f1f1; /* Light background for light mode */
-    color: #333; /* Dark text color for light mode */
-  }
-  
-  .navbar-brand a {
-    color: #fff; /* Dark mode link color */
-    font-size: 2rem ;
-    text-decoration: none;
-  }
-  
-  body.light-mode .navbar-brand a {
-    color: #333; /* Light mode link color */
-  }
-  
-  /* Navbar links container */
+
   .navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 1.5rem;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background-color: #333;
+      flex-direction: column;
+      align-items: center;
+      display: none;
+      gap: 10px;
+      padding: 20px 0;
+      margin: 0;
   }
-  
-  .navbar-links li a {
-    color: #fff; /* Dark mode link color */
-    text-decoration: none;
-    font-size: 1.5rem;
-    transition: color 0.4s ease;
+
+  .navbar-links.open {
+      display: flex;
   }
-  
-  body.light-mode .navbar-links li a {
-    color: #333; /* Light mode link color */
+
+  .navbar-links li {
+      display: block;
   }
-  
-  .navbar-links li a:hover {
-    color: #939393; /* Highlight color on hover */
-    text-decoration: underline;
+
+  .navbar-brand {
+      flex-grow: 1;
+      text-align: left;
   }
-  
-  body.light-mode .navbar-links li a:hover {
-    color: #00ff9d; /* Different highlight color for light mode */
-    text-decoration: underline;
-  }
-  
-  /* Button to toggle theme */
+
   .theme-toggle {
-    background: transparent;
-    border: 1px solid #fff;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s, color 0.3s;
+      margin-top: 10px; /* Adjust for better spacing on mobile */
   }
-  
-  body.light-mode .theme-toggle {
-    border-color: #333; /* Dark border for light mode */
-    color: #333; /* Dark text color for light mode */
-  }
-  
-  body.light-mode .theme-toggle:hover {
-    background-color: #ddd; /* Light background on hover for light mode */
-  }
-  
-  body .theme-toggle:hover {
-    background-color: #444; /* Dark background on hover for dark mode */
-  }
-  
-  /* Responsive styling for tablets and smaller screens */
-  @media (max-width: 768px) {
-    .navbar {
+}
+
+/* Responsive styling for tablets and smaller screens */
+@media (max-width: 768px) {
+  .navbar {
       flex-direction: column;
       padding: 1rem;
       width: 100%; /* Ensure full width on smaller screens */
-    }
-  
-    .navbar-brand {
+  }
+
+  .navbar-brand {
       margin-bottom: 1rem; /* Space between brand and links */
-    }
-  
-    .navbar-links {
+  }
+
+  .navbar-links {
       flex-direction: column;
       align-items: center; /* Center-align links */
       width: 100%;
       gap: 0.5rem;
       padding: 0; /* Remove padding for mobile view */
-    }
-  
-    .navbar-links li {
+  }
+
+  .navbar-links li {
       width: 100%; /* Ensure full width for each link */
       text-align: center; /* Center-align the text */
-    }
-  
-    .navbar-links li a {
+  }
+
+  .navbar-links li a {
       display: block;
       padding: 0.5rem;
-    }
   }
-  
-  /* Responsive styling for mobile devices */
-  @media (max-width: 480px) {
-    .navbar-brand a {
+}
+
+/* Responsive styling for mobile devices */
+@media (max-width: 480px) {
+  .navbar-brand a {
       font-size: 1.5rem;
-    }
-  
-    .navbar-links li a {
+  }
+
+  .navbar-links li a {
       font-size: 0.9rem;
       padding: 0.7rem; /* Padding for touch-friendliness */
-    }
   }
-  
+}

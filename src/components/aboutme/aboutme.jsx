@@ -16,7 +16,7 @@ function AboutMe() {
       <div className="description-container">
         <h1>About Me</h1>
         <p>
-          Hello! I'm Antonio, a passionate car salesman and aspiring web developer. 
+          Hello! I'm Antonio, a passionate car salesman and Full Stack Web developer. 
           With experience in selling high-end vehicles and a strong interest in technology, 
           I am dedicated to learning and growing in the field of web development. 
           My goal is to create impactful projects and contribute to exciting innovations. 

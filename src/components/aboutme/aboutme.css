@@ -1,98 +1,134 @@
-/* Keyframes for fade-in animation */
 @keyframes fadeIn {
-    from {
+  from {
       opacity: 0;
-    }
-    to {
+  }
+  to {
       opacity: 1;
-    }
   }
-  
-  .about-me {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 40px; /* Increase padding for more space */
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
-    flex-direction: column; /* Stack elements vertically on smaller screens */
-  }
-  
-  .image-container {
-    margin-bottom: 30px; /* Add margin for spacing on small screens */
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
-  }
-  
-  .profile-image {
-    width: 300px; /* Increase image size */
-    height: auto;
-    border-radius: 50%;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Enhanced shadow */
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
-  }
-  
-  .description-container {
-    max-width: 900px; /* Increase width for larger text area */
-    text-align: center; /* Center text on larger screens */
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
 }
-  
+
+.about-me {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  animation: fadeIn 1s ease-out;
+  flex-wrap: wrap; /* Allows wrapping on smaller screens */
+}
+
+.image-container {
+  margin-right: 40px;
+  flex-basis: 100%; /* Takes full width on mobile screens */
+  text-align: center; /* Center the image on mobile */
+}
+
+.profile-image {
+  width: 250px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  animation: fadeIn 1s ease-out;
+}
+
+.description-container {
+  max-width: 800px;
+  animation: fadeIn 1s ease-out;
+  flex-basis: 100%; /* Takes full width on mobile screens */
+  text-align: center; /* Center the text on mobile */
+}
+
+.description-container h1 {
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  color: #333;
+}
+
+.description-container p {
+  font-size: 1.3em;
+  line-height: 1.8;
+  color: #666;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  .image-container {
+      margin-right: 0;
+  }
+
+  .profile-image {
+      width: 200px; /* Adjust image size for smaller screens */
+  }
+
   .description-container h1 {
-    margin-bottom: 30px; /* Increase space below heading */
-    font-size: 2.5em; /* Increase heading font size */
-    color: #333; /* Adjust color as needed */
+      font-size: 2em;
   }
-  
+
   .description-container p {
-    font-size: 1.4em; /* Increase paragraph font size */
-    line-height: 1.8; /* Increase line height for better readability */
-    color: #666; /* Adjust color as needed */
+      font-size: 1.1em;
   }
-  
-  .social-links {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
-  }
-  
+
   .social-icon {
-    width: 65px; /* Increase icon size */
-    height: 60px;
-    margin: 0 20px; /* Increase space between icons */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    animation: fadeIn 1s ease-out; /* Apply fade-in animation */
+      width: 35px;
+      height: 35px;
   }
-  
-  .social-icon:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8); /* Enhanced hover effect */
+}
+/* Adjusting font size for smaller screens */
+@media (max-width: 600px) {
+  .typewriter h2 {
+    font-size:9px; /* Smaller font size for mobile */
   }
-  
-  /* Responsive styles */
-  @media (max-width: 768px) {
-    .about-me {
-      flex-direction: column; /* Stack image and text vertically */
-    }
-  
-    .image-container {
-      margin-bottom: 20px; /* Adjust margin for smaller screens */
-    }
-  
-    .profile-image {
-      width: 300px; /* Adjust image size for smaller screens */
-    }
-  
-    .description-container h1 {
-      font-size: 2em; /* Adjust heading size for smaller screens */
-    }
-  
-    .description-container p {
-      font-size: 1.2em; /* Adjust paragraph size for smaller screens */
-    }
-  
-    .social-icon {
-      width: 50px; /* Adjust icon size for smaller screens */
-      height: 50px;
-    }
+
+  .description-container p {
+    font-size: 1em; /* Adjust paragraph font size */
+    line-height: 1.5; /* Adjust line height for readability */
   }
-  
+
+  .profile-image {
+    width: 180px; /* Reduce image size for mobile */
+  }
+
+  .about-me {
+    flex-direction: column; /* Stack image and description vertically on mobile */
+    text-align: center; /* Center align text on mobile */
+  }
+
+  .social-links {
+    justify-content: center; /* Center social links on mobile */
+    margin-top: 20px; /* Add space above social links */
+  }
+}
+
+/* Other existing styles for larger screens */
+
+@media (max-width: 480px) {
+  .profile-image {
+      width: 150px; /* Further adjust image size for very small screens */
+  }
+
+  .description-container h1 {
+      font-size: 1.8em;
+  }
+
+  .description-container p {
+      font-size: 1em;
+  }
+
+  .social-icon {
+      width: 30px;
+      height: 30px;
+  }
+  .typewriter h2 {
+    font-size: 10px; /* Smaller font size for mobile */
+  }
+}
