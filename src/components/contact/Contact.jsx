@@ -1,90 +1,46 @@
-import React, { useState } from 'react';
-import './Contact.css'; // Add your styling here
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import './Contact.css'; // Import your styling here
 
 function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
+  const form = useRef();
 
-  const [status, setStatus] = useState('');
-
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
+  const sendEmail = (e) => {
     e.preventDefault();
-    try {
-      const response = await fetch('/api/send-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
 
-      if (response.ok) {
-        setStatus('Message sent successfully!');
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        setStatus('Failed to send message.');
-      }
-    } catch (error) {
-      setStatus('An error occurred.');
-    }
+    // Generate a five-digit number for the contact_number variable
+    form.current.contact_number.value = Math.random() * 100000 | 0;
+
+    // Send form using EmailJS
+    emailjs.sendForm(
+      'service_j6ji8pb', // EmailJS service ID
+      'template_rvx4vot',    // EmailJS template ID
+      form.current,
+      'EaTT2vXb6XP68bm5w'  // EmailJS public key
+    ).then((result) => {
+        console.log('SUCCESS!', result.text);
+        alert('Message sent successfully!');
+      }, (error) => {
+        console.log('FAILED...', error.text);
+        alert('Failed to send message.');
+      });
   };
 
   return (
     <div className="contact-page">
       <h1>Contact Me</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Email:
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Subject:
-          <input
-            type="text"
-            name="subject"
-            value={formData.subject}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <label>
-          Message:
-          <textarea
-            name="message"
-            value={formData.message}
-            onChange={handleChange}
-            required
-          />
-        </label>
-        <button type="submit">Send</button>
-        {status && <p>{status}</p>}
+      <form id="contact-form" ref={form} onSubmit={sendEmail}>
+        <input type="hidden" name="contact_number" />
+        <label>Name</label>
+        <input type="text" name="user_name" required />
+
+        <label>Email</label>
+        <input type="email" name="user_email" required />
+
+        <label>Message</label>
+        <textarea name="message" required />
+
+        <input type="submit" value="Send" />
       </form>
     </div>
   );

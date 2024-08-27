@@ -30,6 +30,7 @@ function NavBar() {
         <li><Link to='/about-me' onClick={toggleMenu}>About Me</Link></li>
         <li><Link to='/projects' onClick={toggleMenu}>Projects</Link></li>
         <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
+        <li><Link to="/game" onClick={toggleMenu}>Game</Link></li>
         <li><Link to={resume} target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>Resume</Link></li>
       </ul>
       <button className="theme-toggle" onClick={toggleTheme}>

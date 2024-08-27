@@ -5,6 +5,7 @@ import Home from './components/Home/Home';
 import Projects from './components/mywork/projects';
 import Contact from './components/contact/Contact';
 import Aboutme from './components/aboutme/aboutme'; 
+import Game from './components/game/Game';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/about-me" element={<Aboutme />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/game" element={<Game />} />
       </Routes>
     </Router>
   );
