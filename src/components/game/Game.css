@@ -1,13 +1,132 @@
-.game-container {
+
+  /* Game Container */
+  .game {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    height: 100vh;
-    background-color: #87CEEB; /* Sky blue background */
+    justify-content: center;
+    min-height: 100vh;
+    text-align: center;
+    padding: 20px; /* Add padding for better spacing */
   }
   
-  canvas {
-    border: 2px solid #000; /* Black border around the canvas */
-    background-color: #f5f5f5; /* Light grey background for the canvas */
+  /* Status Text */
+  .status {
+    margin-bottom: 20px;
+    font-size: 30px; /* Increase font size for better visibility */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Board */
+  .board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px; /* Increase grid gap for more spacing */
+    width: 400px; /* Increase board width */
+    max-width: 100%;
+  }
+  
+  /* Board Rows */
+  .board-row {
+    display: contents;
+  }
+  
+  /* Square */
+  .square {
+    width: 100%;
+    height: 120px; /* Increase square height */
+    background: #fff;
+    border: 3px solid #666; /* Increase border width */
+    font-size: 3em; /* Increase font size */
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+  }
+  
+  /* Square Hover Effect */
+  .square:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  /* Restart Button */
+  .restart-button {
+    margin-top: 20px;
+    padding: 15px 30px; /* Increase padding */
+    font-size: 24px; /* Increase font size */
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 10px; /* Increase border radius for rounded corners */
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  /* Restart Button Hover Effect */
+  .restart-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+  }
+  
+  /* Restart Button Active Effect */
+  .restart-button:active {
+    background-color: #004094;
+  }
+  
+  /* Score Display */
+  .scores {
+    margin-top: 20px;
+    font-size: 24px; /* Increase font size */
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .board {
+      width: 90%;
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .square {
+      height: 100px;
+      font-size: 2.5em;
+    }
+  
+    .status {
+      font-size: 26px;
+    }
+  
+    .restart-button {
+      padding: 12px 24px;
+      font-size: 20px;
+    }
+  
+    .scores {
+      font-size: 20px;
+    }
+  }
+  
+  @media (max-width: 400px) {
+    .square {
+      height: 80px;
+      font-size: 2em;
+    }
+  
+    .status {
+      font-size: 22px;
+    }
+  
+    .restart-button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  
+    .scores {
+      font-size: 18px;
+    }
   }
   

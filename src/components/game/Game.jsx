@@ -1,63 +1,107 @@
-import React, { useRef, useEffect, useState } from 'react';
-import './Game.css'; // Import the CSS file
+import React, { useState, useEffect } from 'react';
+import '../game/Game.css'; // Ensure this file is created with the provided CSS
 
-const Game = () => {
-  const canvasRef = useRef(null);
-  const [playerY, setPlayerY] = useState(570); // Initial position of the player
-  const [velocity, setVelocity] = useState(0); // Initial velocity of the player
-  const [isJumping, setIsJumping] = useState(false);
+const TicTacToe = () => {
+  const [board, setBoard] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
+  const [scores, setScores] = useState({ X: 0, O: 0 });
+  const winner = calculateWinner(board);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const gravity = 0.5; // Gravity effect
-    const jumpPower = -10; // Initial jump velocity
+    // Load scores from localStorage
+    const savedScores = JSON.parse(localStorage.getItem('ticTacToeScores')) || { X: 0, O: 0 };
+    setScores(savedScores);
+  }, []);
 
-    const draw = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = 'blue';
-      ctx.fillRect(50, playerY, 30, 30);
+  useEffect(() => {
+    // Save scores to localStorage when they change
+    localStorage.setItem('ticTacToeScores', JSON.stringify(scores));
+  }, [scores]);
 
-      // Update velocity and position
-      if (isJumping) {
-        setVelocity(prev => prev + gravity); // Apply gravity
-        setPlayerY(prevY => Math.min(570, prevY + velocity));
-        
-        // Stop jump when player lands
-        if (playerY === 570) {
-          setVelocity(0); // Stop downward movement when hitting the ground
-          setIsJumping(false); // Reset jumping state
-        }
-      } else {
-        // Apply gravity if not jumping
-        setVelocity(prev => prev + gravity);
-        setPlayerY(prevY => Math.min(570, prevY + velocity));
-      }
+  useEffect(() => {
+    if (winner) {
+      // Update score when a player wins
+      setScores(prevScores => ({
+        ...prevScores,
+        [winner]: prevScores[winner] + 1
+      }));
+      // Delay board reset to show the winner
+      setTimeout(() => handleRestart(), 1000);
+    }
+  }, [winner]);
 
-      requestAnimationFrame(draw);
-    };
+  const handleClick = (index) => {
+    if (board[index] || winner) return; // Ignore click if square is filled or game is won
 
-    draw();
+    const newBoard = board.slice();
+    newBoard[index] = xIsNext ? 'X' : 'O';
+    setBoard(newBoard);
+    setXIsNext(!xIsNext);
+  };
 
-    const handleKeyDown = (event) => {
-      if (event.code === 'Space' && playerY === 570) {
-        setVelocity(jumpPower); // Set initial jump velocity
-        setIsJumping(true); // Trigger jump
-      }
-    };
+  const renderSquare = (index) => (
+    <button className="square" onClick={() => handleClick(index)}>
+      {board[index]}
+    </button>
+  );
 
-    window.addEventListener('keydown', handleKeyDown);
+  const status = winner
+    ? `Winner: ${winner}`
+    : `Next player: ${xIsNext ? 'X' : 'O'}`;
 
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-    };
-  }, [isJumping, playerY, velocity]);
+  const handleRestart = () => {
+    setBoard(Array(9).fill(null));
+    setXIsNext(true);
+  };
 
   return (
-    <div className="game-container">
-      <canvas ref={canvasRef} width={800} height={600}></canvas>
+    <div className="game">
+      <div className="status">{status}</div>
+      <div className="board">
+        <div className="board-row">
+          {renderSquare(0)}
+          {renderSquare(1)}
+          {renderSquare(2)}
+        </div>
+        <div className="board-row">
+          {renderSquare(3)}
+          {renderSquare(4)}
+          {renderSquare(5)}
+        </div>
+        <div className="board-row">
+          {renderSquare(6)}
+          {renderSquare(7)}
+          {renderSquare(8)}
+        </div>
+      </div>
+      <button onClick={handleRestart} className="restart-button">Restart Game</button>
+      <div className="scores">
+        <div>Score X: {scores.X}</div>
+        <div>Score O: {scores.O}</div>
+      </div>
     </div>
   );
 };
 
-export default Game;
+// Function to calculate the winner
+const calculateWinner = (squares) => {
+  const lines = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [2, 4, 6],
+  ];
+  for (let i = 0; i < lines.length; i++) {
+    const [a, b, c] = lines[i];
+    if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
+      return squares[a];
+    }
+  }
+  return null;
+};
+
+export default TicTacToe;
