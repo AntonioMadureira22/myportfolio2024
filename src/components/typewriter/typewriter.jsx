@@ -1,6 +1,5 @@
-// src/components/Typewriter.js
 import React, { useEffect, useState } from 'react';
-import '../typewriter/typewriter.css'; // Import CSS for typewriter effect
+import '../typewriter/typewriter.css'; 
 
 const Typewriter = ({ text, typingSpeed = 100, deletingSpeed = 150, pauseDuration = 2000 }) => {
   const [displayText, setDisplayText] = useState('');
@@ -35,7 +34,11 @@ const Typewriter = ({ text, typingSpeed = 100, deletingSpeed = 150, pauseDuratio
     return () => clearTimeout(timer);
   }, [index, isDeleting, text, typingSpeed, deletingSpeed, pauseDuration]);
 
-  return <p className="typewriter-text">{displayText}</p>;
+  return (
+    <div className="typewriter-container">
+      <p className="typewriter-text">{displayText}</p>
+    </div>
+  );
 };
 
 export default Typewriter;

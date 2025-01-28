@@ -1,4 +1,5 @@
-/* src/components/Typewriter.css */
+/* src/components/typewriter/Typewriter.css */
+
 .typewriter-text {
   font-family: 'Courier New', Courier, monospace;
   font-size: 1.2em;
@@ -7,35 +8,55 @@
   white-space: nowrap;
   overflow: hidden;
   display: inline-block;
-  animation: blink-caret .75s step-end infinite;
+  animation: blink-caret 0.75s step-end infinite;
+  max-width: 100%; /* Prevent text from overflowing */
+  text-overflow: ellipsis; /* If text is too long, add ellipsis */
 }
 
 @keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #333 }
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #333;
+  }
 }
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
   .typewriter-text {
-      font-size: 10px /* Slightly smaller font for larger tablets */
+    font-size: 1.1em; /* Adjust font for larger screens */
   }
 }
 
 @media (max-width: 992px) {
   .typewriter-text {
-      font-size: .5em; /* Slightly smaller font for smaller tablets */
+    font-size: 1em; /* Slightly smaller font for tablets */
   }
 }
 
 @media (max-width: 768px) {
   .typewriter-text {
-      font-size: 10px; /* Smaller font for mobile devices */
+    font-size: 0.9em; /* Smaller font for mobile devices */
   }
 }
 
 @media (max-width: 480px) {
   .typewriter-text {
-      font-size: 10px; /* Smaller font for very small mobile devices */
+    font-size: 0.8em; /* Smaller font for very small devices */
+    white-space: normal; /* Allow text to wrap onto a new line */
+    word-wrap: break-word; /* Break long words to fit within the container */
   }
+}
+
+/* Add container styles for the typewriter effect */
+.typewriter-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  overflow: hidden;
+  padding: 0 15px; /* Add padding to avoid text being too close to the edges */
+  box-sizing: border-box;
+  word-wrap: break-word; /* Prevent overflow and allow text to break */
 }
