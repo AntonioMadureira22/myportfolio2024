@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../navbar/navbar.css';
-import resume from '../navbar/codingresume.pdf';
+import resume from '../navbar/newresume.pdf';
 
 function NavBar() {
   const [isDarkMode, setIsDarkMode] = useState(true);
