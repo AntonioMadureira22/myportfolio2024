@@ -6,6 +6,7 @@ import Projects from './components/mywork/projects';
 import Contact from './components/contact/Contact';
 import Aboutme from './components/aboutme/aboutme'; 
 import Game from './components/game/Game';
+import Footer from './components/Footer/Footer';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/game" element={<Game />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }
