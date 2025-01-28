@@ -1,0 +1,106 @@
+/* General Section Styling */
+.projects-section {
+    min-height: 100vh;
+    background-color: #e5e7eb; /* Light gray for background contrast */
+    padding: 2.5rem 1rem;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: #111827; /* Darker text for better readability */
+    margin-bottom: 2rem;
+  }
+  
+  /* Grid Layout */
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* Project Card */
+  .project-card {
+    background: linear-gradient(145deg, #ffffff, #d1d5db); /* Subtle gradient for depth */
+    border-radius: 12px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Stronger shadow for contrast */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+  }
+  
+  .project-content {
+    padding: 1.5rem;
+  }
+  
+  .project-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1e3a8a; /* Deep blue for a stronger contrast */
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-description {
+    font-size: 1rem;
+    color: #374151; /* Neutral dark gray for readability */
+    margin-bottom: 1rem;
+  }
+  
+  /* Buttons */
+  .project-links {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .live-demo-button,
+  .github-button {
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+  
+  .live-demo-button {
+    background-color: #3b82f6; /* Bright blue */
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(59, 130, 246, 0.3); /* Shadow for button depth */
+  }
+  
+  .live-demo-button:hover {
+    background-color: #2563eb; /* Darker blue on hover */
+    transform: translateY(-2px);
+  }
+  
+  .github-button {
+    background-color: #1f2937; /* Deep gray for contrast */
+    color: #ffffff;
+    box-shadow: 0 4px 6px rgba(31, 41, 55, 0.3); /* Shadow for button depth */
+  }
+  
+  .github-button:hover {
+    background-color: #111827; /* Even darker gray on hover */
+    transform: translateY(-2px);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-title {
+      font-size: 2rem;
+    }
+  
+    .project-card {
+      margin: 0 auto;
+    }
+  }
+  
