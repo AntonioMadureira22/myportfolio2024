@@ -1,0 +1,35 @@
+/* Live Stream Page Styling */
+
+.live-stream-page {
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.live-stream-page h1{
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Stream Container */
+.stream-container {
+    margin-bottom: 20px;
+  }
+  
+  .stream-container iframe {
+    max-width: 100%;
+    height: 600px;
+    border-radius: 10px;
+  }
+  
+  /* Chat Container (Optional) */
+  .chat-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .chat-container iframe {
+    border-radius: 10px;
+  }

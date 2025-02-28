@@ -7,6 +7,7 @@ import Contact from './components/contact/Contact';
 import Aboutme from './components/aboutme/aboutme'; 
 import Game from './components/game/Game';
 import Footer from './components/Footer/Footer';
+import LiveStream from './components/LiveStream/LiveStream';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/projects" element={<Projects />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/game" element={<Game />} />
+        <Route path='/livestream' element={<LiveStream/>} />
       </Routes>
       <Footer/>
     </Router>

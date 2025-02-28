@@ -32,6 +32,7 @@ function NavBar() {
         <li><Link to="/contact" onClick={toggleMenu}>Contact</Link></li>
         <li><Link to="/game" onClick={toggleMenu}>Game</Link></li>
         <li><Link to={resume} target="_blank" rel="noopener noreferrer" onClick={toggleMenu}>Resume</Link></li>
+        <li><Link to="/livestream" onClick={toggleMenu}>LiveStream</Link></li>
       </ul>
       <button className="theme-toggle" onClick={toggleTheme}>
         {isDarkMode ? 'Light Mode' : 'Dark Mode'}
