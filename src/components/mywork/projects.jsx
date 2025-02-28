@@ -20,6 +20,12 @@ const projects = [
     liveLink: "https://silly-valkyrie-e48ff3.netlify.app/",
     githubLink: "https://github.com/AntonioMadureira22/meme-generator",
   },
+  {
+    title: "Random Art Genie",
+    description: "A random art generator .",
+    liveLink: "https://randomartgenie.netlify.app/",
+    githubLink: "https://github.com/AntonioMadureira22/random-art-generator",
+  },
   
 ];
 
