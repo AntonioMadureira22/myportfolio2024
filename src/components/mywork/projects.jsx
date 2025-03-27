@@ -26,6 +26,12 @@ const projects = [
     liveLink: "https://randomartgenie.netlify.app/",
     githubLink: "https://github.com/AntonioMadureira22/random-art-generator",
   },
+  {
+    title: "CSV to JSON Convert",
+    description: "Converts a CSV file to a Json file in Node using IDE.",
+    liveLink: "https://github.com/AntonioMadureira22/csvtojson",
+    githubLink: "https://github.com/AntonioMadureira22/csvtojson",
+  },
   
 ];
 
